@@ -1,2 +1,2 @@
 # 203.210-Genetics-Evolution
-Computational resources for 203.210
+This is a set of help files that are Computational resources for 203.210
