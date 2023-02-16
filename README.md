@@ -1,4 +1,4 @@
-# 203.210-Genetics-Evolution
+# Computational Practicals
 This is a set of computational resources for 203.210 Genetics and Evolution
 
 ## Practicals
