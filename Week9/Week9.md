@@ -8,5 +8,5 @@ do other stuff
 ### did that work?
 ```
 
-link oop https://www.tiktok.com/@sundyp/video/6898080726831353089?lang=en
+[R is scary](https://www.tiktok.com/@sundyp/video/6898080726831353089?lang=en)
 
