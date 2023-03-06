@@ -5,3 +5,4 @@ In Week 4 you will get an introduction to sequence file formats
 AGTCTTGATCGA
 ```
 
+<input type="text" id="name" name="name"/>
