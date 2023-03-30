@@ -29,4 +29,50 @@ Oxford Nanopore sequencing has a wide range of applications, including:
 - Pathogen detection (e.g. COVID-19)
 - Forensics
 
+The data output from Oxford Nanopore sequencers is a string of nucleotides, e.g. `ATGCGTGGGTCTTTAG` except these strings are usually thousands or hundereds of thousands of nucleotides long. However, the data also contain two other pieces of important information. The first is a unique name for the sequence, and the second is the "quality" of the sequence - i.e. how sure we can be that the sequencer has reported the correct nucleotide. This format (sequence name, nucleotide sequence, and nucleotide accuracy) is called `fastq` format.
+
+# Introduction to FASTQ format
+
+The FASTQ format is a widely used file format for storing DNA sequence and quality score data. It is commonly used for output from high-throughput sequencing instruments such as Illumina, PacBio, or Oxford Nanopore.
+
+## Why is FASTQ format useful?
+
+FASTQ format is useful because it combines both the DNA sequence and its corresponding quality score (accuracy) information into a single file. This makes it easier to store and analyze sequencing data, as opposed to storing these two pieces of information separately, or storing solely the DNA sequence.
+
+## How should I interpret FASTQ format?
+
+Each entry in a FASTQ file contains four lines of information:
+
+1. **Header line**: starts with '@' character followed by a unique identifier (i.e. "name") for the sequence read.
+2. **Sequence line**: contains the actual DNA sequence read in the form of a string of A, T, C, and G nucleotides.
+3. **Separator line**: starts with the '+' character and is optionally followed by the same identifier as the header line.
+4. **Quality score line**: contains quality scores for each base in the sequence read. These scores represent the confidence in the accuracy of the base call, with higher scores indicating higher confidence.
+
+Here's an example of what a single entry in a FASTQ file might look like:
+
+```bash
+@SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''((((+))%%%++)(%%%%).1*-+*''))**55CCF>>>>>>CCCCCCC65
+```
+
+
+In this example, the header line starts with the '@' character and the sequence line contains the DNA sequence. The separator line (which serves no real purpose) has a `+` character. Finally, the quality score line contains quality scores for each base in the sequence read.
+
+You will note that the quality score line contains letters, numbers, and symbols, and not only numbers. I noted above that this line specifies the _accuracy_ of each base pair. You might thus expect these to be numbers, for example between `0` and `1`, which `1` indicating it's 100% certain that this is the correct nucleotide, and `0` indicating that it is 0% certain. This is actually what this line is indicating, b ut it is doing so in a slightly cryptic manner.
+
+Rather than encoding the numbers simply as numbers, they are encoded as "compressed" numbers by using `ASCII` characters. All [`ASCII` characters](https://en.wikipedia.org/wiki/ASCII "maybe you've seen ASCII art?") are either control characters or "printable" characters, and it is this second set that you are seeing. These are associated with the numbers [33 to 128](https://theasciicode.com.ar/ "some tables"). For example, `!` the exclamation point is associated with the number 33, and upper case f `F` is associated with the number 70.
+
+So above, the first few quality (accuracy) scores are `!` (33) `'` (39) `'` (39) `(` (40) `(` (40) `(` (40) `(` (40) `+` (43) `)` (41) `)` (41) `%` (37) ...etc.
+
+Wait! you say. Those aren't numbers between 0 and 1! That is true. Instead, they are numbers between 33 and 128. To transform these into quality scores (i.e. accuracy), we first subtract 33, so that the lowest character-associated number (`!` or 33) begins at `0`. _Then_ we transform these numbers into a number between `0` and `1` with a log transformation. We don't need to discuss this transformation equation here. Suffice to say that the smaller the number, the lower the accuracy. If the number is 10 (`+`) then the _accuracy_ is 90% - we can be 90% certain that the DNA sequencer has told us the correct nucleotide. If the number is 20 (`5`) then we can be 99% sure it is the correct nucleotide. If it is 30 (`?`) we can be 99.9% sure. If it is 40 (`I`) we cann be 99.99% sure. If it is 50 (`S`) then we can be 99.999% sure etc. etc.
+
+_Usually_ with Oxford Nanopore sequence, we will be about 98% sure that the sequencer has given us the correct nucleotide. This might sound good, but frequently we will need higher accuracy, for example if we want to figure out if a genome has a specific mutation. In _our_ case though (where we want to figure out which species at mtDNA COI sequence is from), 99% accuracy will often be fine. And in many cases, Oxford Nanopore sequence will be 99.9% accurate (yay!).    
+
+## Conclusion
+
+The FASTQ format is an essential file format in bioinformatics, and understanding how to interpret it is critical for analyzing sequencing data. By combining DNA sequence and quality score information into a single file, FASTQ makes it easier to store, transmit, and analyze sequencing data, enabling researchers to gain new insights into the genetic makeup of organisms.
+
+
 <input type="text" id="name" name="name"/>
