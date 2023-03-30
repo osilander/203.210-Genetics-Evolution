@@ -98,6 +98,8 @@ Rather than encoding the numbers simply as numbers, they are encoded as "compres
 
 So above, the first few quality (accuracy) scores are `!` (33) `'` (39) `'` (39) `(` (40) `(` (40) `(` (40) `(` (40) `+` (43) `)` (41) `)` (41) `%` (37) ...etc.
 
+## How should I interpret quality scores?
+
 Wait! you say. Those aren't numbers between 0 and 1! That is true. Instead, they are numbers between 33 and 128. To transform these into quality scores (i.e. accuracy), we first subtract 33, so that the lowest character-associated number (`!` or 33) begins at `0`. _Then_ we transform these numbers into a number between `0` and `1` with a log transformation. We don't need to discuss this transformation equation here. Suffice to say that the smaller the number, the lower the accuracy. If the number is 10 (`+`) then the _accuracy_ is 90% - we can be 90% certain that the DNA sequencer has told us the correct nucleotide. If the number is 20 (`5`) then we can be 99% sure it is the correct nucleotide. If it is 30 (`?`) we can be 99.9% sure. If it is 40 (`I`) we cann be 99.99% sure. If it is 50 (`S`) then we can be 99.999% sure etc. etc.
 
 _Usually_ with Oxford Nanopore sequence, we will be about 98% sure that the sequencer has given us the correct nucleotide. This might sound good, but frequently we will need higher accuracy, for example if we want to figure out if a genome has a specific mutation. In _our_ case though (where we want to figure out which species at mtDNA COI sequence is from), 99% accuracy will often be fine. And in many cases, Oxford Nanopore sequence will be 99.9% accurate (yay!).    
@@ -106,10 +108,15 @@ _Usually_ with Oxford Nanopore sequence, we will be about 98% sure that the sequ
 
 The FASTQ format is an essential file format in bioinformatics, and understanding how to interpret it is critical for analyzing sequencing data. By combining DNA sequence and quality score information into a single file, FASTQ makes it easier to store, transmit, and analyze sequencing data, enabling researchers to gain new insights into the genetic makeup of organisms.
 
-Let's now remind ourselves why we have generated this sequencing data.
+## How can we approach this data?
 
+Given the enormous amount of sequence data produced by next generation sequencing methods such as Oxford Nanopore (billions of base pairs of DNA sequence), it would be impossible to analyse these DNA sequences “by hand.” For this reason, powerful computational approaches have been developed that allow billions (or even trillions) of base pairs of DNA to be analysed very quickly.
 
-## BLAST
+We will apply these methods to analyse our own data, with the aim of answering a simple question: what is in this DNA sample?
+
+We note, at first, that [Computers can save you time](https://twitter.com/OdedRechavi/status/1629765548564267008?s=20 "I have no idea if this is a real scene")
+
+# Introduction to BLAST
 
 BLAST, which stands for Basic Local Alignment Search Tool, is a widely used bioinformatics program that compares a query sequence with a database of known sequences to find matches. BLAST is a powerful tool for identifying similarities between sequences, and it is particularly useful for identifying related sequences in large databases. 
 
