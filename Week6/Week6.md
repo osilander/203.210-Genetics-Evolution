@@ -146,6 +146,7 @@ To perform a search, you simply input your query sequence and select the appropr
 ## Summary of BLAST
 BLAST is a powerful bioinformatics tool that can be used to search for similarities between sequences. Its speed and flexibility make it an essential tool for many types of biological research, from genome sequencing to protein structure prediction. By breaking down sequences into small segments and comparing them to a database of known sequences, BLAST provides a quick and accurate way to identify related sequences and uncover new insights into biological systems.
 
+
 # Using BLAST
 The BLAST website is freely available and is primarily run from servers that sit in the US. You can find the website [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi "blast off"). Note that there are several "flavours" of BLAST - two of the most commonly used are "blastn" and "blastp", which allow you to search for databases sequences matching Nucleotide sequnces (blastN) or Protein sequences (blastP). In you case, you have nucleotide sequences, so we will be using [blastn](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=MegaBlast&PROGRAM=blastn&PAGE_TYPE=BlastSearch&BLAST_SPEC= "nucs only"). Open a tab of that page now.
 
@@ -155,4 +156,32 @@ The BLAST website is freely available and is primarily run from servers that sit
 This is what the page should look like <br><br>
 
 
-On this page you can see an empty white box. This is where you will paste your nucleotide sequence(s) of interest.
+On this page you can see an empty white box. This is where you will paste your nucleotide sequence(s) of interest, usually in FASTA format.
+
+## Your sample data
+
+The sequences from your samples are available for download as a zip file via [this link](data/203210-nanopore-sequences.zip). If that does not work, they are also available on the Stream website, in the Lab tab. Please download those now and uncompress the .zip file (this may occur automatically, or you may need to double click it).
+
+Once you have done that, you will see a folder with a number of files that are labeled by barcode (`barcode01.filter.fasta`, etc.) Each of these contains a filtered set of seequences from each of the barcodes that you used. Some of you may not see your barcode. In this case, we may not have generated any sequence from your sample because of an error somehwere along the way, or because it was just too difficult to get DNA from your sample. **Do not worry if this is the case**. If you cannot see your own barcode, then for the report you will have to select another set of data to analyse.
+
+Here is a quick summary of the data that we did get:
+
+|file                  |format|type|number of seqs|total length|min. length|average length|max. length|
+|:---------------------|:-----|:---|:-------|:------|:------|:------|:------|
+|barcode01.filter.fasta|FASTA |DNA |2       |1023   |506    |511.5  |517    |
+|barcode02.filter.fasta|FASTA |DNA |11      |7514   |509    |683.1  |778    |
+|barcode07.filter.fasta|FASTA |DNA |4       |2512   |598    |628.0  |677    |
+|barcode10.filter.fasta|FASTA |DNA |12      |7171   |507    |597.6  |744    |
+|barcode11.filter.fasta|FASTA |DNA |2       |1289   |609    |644.5  |680    |
+|barcode13.filter.fasta|FASTA |DNA |2       |1272   |526    |636.0  |746    |
+|barcode14.filter.fasta|FASTA |DNA |116     |68392  |500    |589.6  |772    |
+|barcode15.filter.fasta|FASTA |DNA |579     |406318 |504    |701.8  |798    |
+|barcode17.filter.fasta|FASTA |DNA |4       |2357   |519    |589.3  |751    |
+|barcode18.filter.fasta|FASTA |DNA |1       |590    |590    |590.0  |590    |
+|barcode19.filter.fasta|FASTA |DNA |17      |9872   |501    |580.7  |748    |
+|barcode20.filter.fasta|FASTA |DNA |71      |40141  |501    |565.4  |800    |
+|barcode28.filter.fasta|FASTA |DNA |16      |9684   |500    |605.3  |755    |
+
+As you can see, some barcodes sequenced more successfully than others. More specifically, barcodes 14 and 15 were very successful, with 116 and 579 total sequences each. Note that even these numbers are quite small (but that is not your fault). We have limited our expenses for this experiment and so have not sequenced extensively. In a normal sequencing experiment we would usually generate more than 50 million sequences.
+
+There are several other pieces of data in the table above beside the number of sequences. You can also see the total length of all the sequences added together, and the minimum, maximum, and average length. Note that the reason these all are named "filter" is that I have filtered out all sequences less than 500 bp in length, as we expect that - minimally - our PCR products from the COI region should be 650 bp or so (this will not always be exact due to deletions or breaks in the sequences that can occur).
