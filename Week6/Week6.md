@@ -227,5 +227,31 @@ This page has a list of the sequences in the database that match the sequence yo
 <img src="graphics/describe.png" title="Tada!" width="500"/><br>
 **Hmmm...**<br><br>
 
+Finally, click on the top link (or one close to the top). This will bring you to an alignemnt of your sequence (the one you pasted into the white box on the previous page) and the top-matching sequence in the BLAST database (the default you used is the "nr", or non-redundant nucloetide database which currently contains 92,292,742 sequences and thousands or even millions times that in terms of total base pairs). This alignment should look something like this:<br>
+
+<img src="graphics/align.png" title="Tada!" width="500"/><br>
+**lots of letters**<br><br>
+
+Let's go through this from the top. First, you will see that the title notes this your sequence matches the _Homo sapiens_ mitochondrial genome. Yay! This is what we expected. Below that, you will see the sequence ID, length, and number of matches. We can ignore those for now. Below that, you can see three important quantities:
+1. **Expect**
+2. **Identities**
+3. **Gaps**
+
+Let's go through those in detail.
+
+## Expect
+
+This number specifies the number of sequences in the database that you would _expect_ to match as well (or better) as your sequence matches _if the database were made of random nucleotides_ (and was the smae size). Here, we can see that you would expect to find zero (0.0) sequences that match as well as this human mitochondrial sequence. In other words, **this is a very good match**. Other Expect-values you might see (also denoted as [E-values](https://www.metagenomics.wiki/tools/blast/evalue "explain e")) that would indicate a good match could be _1e-20_ - in other words, you would expect to find a sequence match as good in only _1e20_ searches, aka if you search _1 x 10^20_ times, only one of those times would expect to find a match this good. Or you might find _1e-10_ - this would also be good. **The smaller the E-value the better**. On the other hand, an E-value of 10 menas that _even in a database of random nucleotides_ you would expect find 10 sequences that match just as well. In other words, the match is no better than random.
+
+
+## Identities
+
+This specifies how many nucleotides in the database sequence _exactly_ match your sequence once the two sequences have been aligned. You can see this in the aignment itself, in whcih was **Identity** is indicated by a vertical line between two nucleotides.
+
+## Gaps
+
+This indicates how many gaps are present in the alignment of the two sequences. These are regions in which insertions or deletions have occurred - either because your sequence is from an organism that doesn't exactly match the one in the database, or because your sequence itself has errors.
+
+
 
 
