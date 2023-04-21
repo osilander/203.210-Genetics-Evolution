@@ -221,6 +221,11 @@ After that, you should see another screen load, this will look like this:<br>
 <img src="graphics/result-screen.png" title="Tada!" width="500"/><br>
 **First results!**<br><br>
 
-This page has a list of the sequences in the database that match the sequence you pasted in above.
+This page has a list of the sequences in the database that match the sequence you pasted in above. Go ahead and scroll down a bit. You should see a list of "Descriptions":<br>
+
+
+<img src="graphics/describe.png" title="Tada!" width="500"/><br>
+**Hmmm...**<br><br>
+
 
 
