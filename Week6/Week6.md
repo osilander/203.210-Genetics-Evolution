@@ -164,25 +164,25 @@ The sequences from your samples are available for download as a zip file via [th
 
 Once you have done that, you will see a folder with a number of files that are labeled by barcode (`barcode01.filter.fasta`, etc.) Each of these contains a filtered set of seequences from each of the barcodes that you used. Some of you may not see your barcode. In this case, we may not have generated any sequence from your sample because of an error somehwere along the way, or because it was just too difficult to get DNA from your sample. **Do not worry if this is the case**. If you cannot see your own barcode, then for the report you will have to select another set of data to analyse.
 
-Here is a quick summary of the data that we did get:
+Here is a quick summary of the data that we did get:<br>
 
-|file                  |format|type|number of seqs|total length|min. length|average length|max. length|
+|file                  |number of seqs|total length|min. length|average length|max. length|
 |:---------------------|:-----|:---|:-------|:------|:------|:------|:------|
-|barcode01.filter.fasta|FASTA |DNA |2       |1023   |506    |511.5  |517    |
-|barcode02.filter.fasta|FASTA |DNA |11      |7514   |509    |683.1  |778    |
-|barcode07.filter.fasta|FASTA |DNA |4       |2512   |598    |628.0  |677    |
-|barcode10.filter.fasta|FASTA |DNA |12      |7171   |507    |597.6  |744    |
-|barcode11.filter.fasta|FASTA |DNA |2       |1289   |609    |644.5  |680    |
-|barcode13.filter.fasta|FASTA |DNA |2       |1272   |526    |636.0  |746    |
-|barcode14.filter.fasta|FASTA |DNA |116     |68392  |500    |589.6  |772    |
-|barcode15.filter.fasta|FASTA |DNA |579     |406318 |504    |701.8  |798    |
-|barcode17.filter.fasta|FASTA |DNA |4       |2357   |519    |589.3  |751    |
-|barcode18.filter.fasta|FASTA |DNA |1       |590    |590    |590.0  |590    |
-|barcode19.filter.fasta|FASTA |DNA |17      |9872   |501    |580.7  |748    |
-|barcode20.filter.fasta|FASTA |DNA |71      |40141  |501    |565.4  |800    |
-|barcode28.filter.fasta|FASTA |DNA |16      |9684   |500    |605.3  |755    |
+|barcode01|  2       |1023   |506    |511.5  |517    |
+|barcode02|  11      |7514   |509    |683.1  |778    |
+|barcode07|  4       |2512   |598    |628.0  |677    |
+|barcode10|  12      |7171   |507    |597.6  |744    |
+|barcode11|  2       |1289   |609    |644.5  |680    |
+|barcode13|  2       |1272   |526    |636.0  |746    |
+|barcode14|  116     |68392  |500    |589.6  |772    |
+|barcode15|  579     |406318 |504    |701.8  |798    |
+|barcode17|  4       |2357   |519    |589.3  |751    |
+|barcode18|  1       |590    |590    |590.0  |590    |
+|barcode19|  17      |9872   |501    |580.7  |748    |
+|barcode20|  71      |40141  |501    |565.4  |800    |
+|barcode28|  16      |9684   |500    |605.3  |755    |
 
-As you can see, some barcodes sequenced more successfully than others. More specifically, barcodes 14 and 15 were very successful, with 116 and 579 total sequences each. Note that even these numbers are quite small (but that is not your fault). We have limited our expenses for this experiment and so have not sequenced extensively. In a normal sequencing experiment we would usually generate more than 50 million sequences.
+<br><br>As you can see, some barcodes sequenced more successfully than others. More specifically, barcodes 14 and 15 were very successful, with 116 and 579 total sequences each. Note that even these numbers are quite small (but that is not your fault). We have limited our expenses for this experiment and so have not sequenced extensively. In a normal sequencing experiment we would usually generate more than 50 million sequences.
 
 There are several other pieces of data in the table above beside the number of sequences. You can also see the total length of all the sequences added together, and the minimum, maximum, and average length. Note that the reason these all are named "filter" is that I have filtered out all sequences less than 500 bp in length, as we expect that - minimally - our PCR products from the COI region should be 650 bp or so (this will not always be exact due to deletions or breaks in the sequences that can occur).
 
