@@ -152,8 +152,8 @@ The BLAST website is freely available and is primarily run from servers that sit
 
 
 
-<img src="graphics/blastn-home.png" title="home" width="300"/>
-This is what the page should look like <br><br>
+<img src="graphics/blastn-home.png" title="home" width="500"/><br>
+**This is what the page should look like** <br><br>
 
 
 On this page you can see an empty white box. This is where you will paste your nucleotide sequence(s) of interest, usually in FASTA format.
@@ -185,3 +185,30 @@ Here is a quick summary of the data that we did get:
 As you can see, some barcodes sequenced more successfully than others. More specifically, barcodes 14 and 15 were very successful, with 116 and 579 total sequences each. Note that even these numbers are quite small (but that is not your fault). We have limited our expenses for this experiment and so have not sequenced extensively. In a normal sequencing experiment we would usually generate more than 50 million sequences.
 
 There are several other pieces of data in the table above beside the number of sequences. You can also see the total length of all the sequences added together, and the minimum, maximum, and average length. Note that the reason these all are named "filter" is that I have filtered out all sequences less than 500 bp in length, as we expect that - minimally - our PCR products from the COI region should be 650 bp or so (this will not always be exact due to deletions or breaks in the sequences that can occur).
+
+Once you have determined whether there is data in your sample (by finding the file that corresponds to your sample's barcode), go ahead and open the file by double clicking. You are likely to get a complaint from your computer that it does not know what program to use. In this case, you can try Word or a similar program, but much better would be to use a simple text editor, such as _Notepad_ or _TextEdit_ or _Atom_.
+
+Once you have opened this file, you should see some sequence(s) in FASTA format. Remember this format: it is the name of the sequence, preceded by a ">", with the DNA sequence itself on the following line. For example, something like this:
+
+```bash
+>39333e46-41fa-4385-98df-5c4d63cf61bc runid=788c21a31b28f5a67fb3567534bb5cc52215f048 sampleid=2023-04-03_OS_PCR_samples read=1133 ch=8 start_time=2023-04-03T05:28:36Z model_version_id=2021-05-17_dna_r9.4.1_minion_768_2f1c8637 barcode=barcode28
+GTTCTACAAGTATAAAATATTGGAACACTATACCTATTATTCGGCGCATGAGCTGGAGTCTGAGCACAGCTCTAAGCCTCCTTATTCGAGCCGAGCTGGAGCCAGCCAGGCAACCTTCTAGGTAACGACCATCGTCACAGCCATTTGTAATAATCTTCTTCATAGTAATACCCATCATAATCGGAGGCTTTGGCAACTGACTAGTTCCCCTAATCGGTGCCCCCGACAGGCGTTTCCCCGCATAAACAACATAAACTTCTGACTCTTACCTCCTCTCTCCCACTCCTGCTCGCATCTGCTATAGTGGAGGCGGAGCAGGAACAGGTTAGAAGTCTACCCTCCCTTAGCAGGGGTTACCCTGGAGCCTCCGTAGACCTAACCATCTTCTCCTTACACCTAGCAGGTGTCTCCTCTATCTTAGGGGCCATCAACCATCACAACAATTATCAATATAAAACCCCCTGCCATAACCCAATACCAAACGCCCCTCTTCGTCTGATCCGTCCTAATCTAGTCCTACTTCTCCTATCTCTCCCAGTCCTAGCTGCTGGCGCCACTATACTACTAACAGACCGCAACCTCAACACCACCTTCGGCCCGCCGGAGGAGGGGCGTCTATACCAGCACTATTCTGATTTTTCGGACACCCAGAAGTTTA
+```
+
+The name here is quite long as it contains many different pieces of information including:
+1. A unique identifier for the sequence _39333e46-41fa-4385-98df-5c4d63cf61bc_
+2. A unique identifier for the sequencing run _788c21a31b28f5a67fb3567534bb5cc52215f048_
+3. A unique identifier for the sample _2023-04-03_OS_PCR_samples_
+4. The number of the read _1133_
+5. The channel of the read _8_
+6. The start time of the read _April 03 5:28am GMT_
+7. The sequencing platform _DNA R9.4.1 MinION_
+8. The barcode _28_
+
+First, go ahead and copy that sequence above and paste it into the white textbox on the BLASTN webpage. once you have done that, scroll down and press the _BLAST_ button.
+
+
+<img src="graphics/blastn-button.png" title="lift-off!" width="500"/><br>
+**This is the BLAST button**<br><br>
+
+
