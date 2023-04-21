@@ -205,10 +205,22 @@ The name here is quite long as it contains many different pieces of information 
 7. The sequencing platform _DNA R9.4.1 MinION_
 8. The barcode _28_
 
-First, go ahead and copy that sequence above and paste it into the white textbox on the BLASTN webpage. once you have done that, scroll down and press the _BLAST_ button.
+First, go ahead and copy that sequence above (you may have to scroll to get all of it) and paste it into the white textbox on the BLASTN webpage. once you have done that, scroll down and press the _BLAST_ button.<br>
 
 
-<img src="graphics/blastn-button.png" title="lift-off!" width="500"/><br>
+<img src="graphics/blast-button.png" title="lift-off!" width="500"/><br>
 **This is the BLAST button**<br><br>
+
+You will then see a page that looks like this:<br>
+
+<img src="graphics/wait-screen.png" title="I'm waiting" width="500"/><br>
+**This is the time to twiddle your thumbs**<br><br>
+
+After that, you should see another screen load, this will look like this:<br>
+
+<img src="graphics/result-screen.png" title="Tada!" width="500"/><br>
+**First results!**<br><br>
+
+This page has a list of the sequences in the database that match the sequence you pasted in above.
 
 
