@@ -102,17 +102,30 @@ So above, the first few quality (accuracy) scores are `!` (33) `'` (39) `'` (39)
 
 Wait! you say. Those aren't numbers between 0 and 1! That is true. Instead, they are numbers between 33 and 128. To transform these into quality scores (i.e. accuracy), we first subtract 33, so that the lowest character-associated number (`!` or 33) begins at `0`. _Then_ we transform these numbers into a number between `0` and `1` with a log transformation. We don't need to discuss this transformation equation here. Suffice to say that the smaller the number, the lower the accuracy. If the number is 10 (`+`) then the _accuracy_ is 90% - we can be 90% certain that the DNA sequencer has told us the correct nucleotide. If the number is 20 (`5`) then we can be 99% sure it is the correct nucleotide. If it is 30 (`?`) we can be 99.9% sure. If it is 40 (`I`) we cann be 99.99% sure. If it is 50 (`S`) then we can be 99.999% sure etc. etc.
 
-_Usually_ with Oxford Nanopore sequence, we will be about 98% sure that the sequencer has given us the correct nucleotide. This might sound good, but frequently we will need higher accuracy, for example if we want to figure out if a genome has a specific mutation. In _our_ case though (where we want to figure out which species at mtDNA COI sequence is from), 99% accuracy will often be fine. And in many cases, Oxford Nanopore sequence will be 99.9% accurate (yay!).    
+_Usually_ with Oxford Nanopore sequence, we will be about 97% sure that the sequencer has given us the correct nucleotide. This might sound good, but frequently we will need higher accuracy, for example if we want to figure out if a genome has a specific mutation. In _our_ case though (where we want to figure out which species at mtDNA COI sequence is from), 99% accuracy will often be fine. And in many cases, Oxford Nanopore sequence will be 99.9% accurate (yay!).    
 
 ## Summary of fastq
 
 The FASTQ format is an essential file format in bioinformatics, and understanding how to interpret it is critical for analyzing sequencing data. By combining DNA sequence and quality score information into a single file, FASTQ makes it easier to store, transmit, and analyze sequencing data, enabling researchers to gain new insights into the genetic makeup of organisms.
 
-## How can we approach this data?
+
+# Introduction to FASTA format
+
+FASTQ format contains information on the nucloetide sequence and the quality (accuracy) of the sequence. However, there is also a second standard format that nucleotide sequences are stored in. This is FASTA format. It contains _only_ nucleotide sequence data and no quality data. Each entry in a fasta file consists of two lines: the _name_ of the sequence, which is _always_ preceded by a ">", and the seequence itself. For example:
+
+```bash
+>SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
+```
+
+You can see this is simpler than FASTQ. Since (for now) we are only interested in the sequences and not in the quality, in this lab you will only encounter (and use) FASTA sequence data.
+
+
+## How can we begin to analyse this sequence data?
 
 Given the enormous amount of sequence data produced by next generation sequencing methods such as Oxford Nanopore (billions of base pairs of DNA sequence), it would be impossible to analyse these DNA sequences “by hand.” For this reason, powerful computational approaches have been developed that allow billions (or even trillions) of base pairs of DNA to be analysed very quickly.
 
-We will apply these methods to analyse our own data, with the aim of answering a simple question: what is in this DNA sample?
+We will apply these methods to analyse our own DNA sequence data, with the aim of answering a simple question: what is in this DNA sample?
 
 We note, at first, that [Computers can save you time](https://twitter.com/OdedRechavi/status/1629765548564267008?s=20 "I have no idea if this is a real scene")
 
@@ -133,5 +146,13 @@ To perform a search, you simply input your query sequence and select the appropr
 ## Summary of BLAST
 BLAST is a powerful bioinformatics tool that can be used to search for similarities between sequences. Its speed and flexibility make it an essential tool for many types of biological research, from genome sequencing to protein structure prediction. By breaking down sequences into small segments and comparing them to a database of known sequences, BLAST provides a quick and accurate way to identify related sequences and uncover new insights into biological systems.
 
+# Using BLAST
+The BLAST website is freely available and is primarily run from servers that sit in the US. You can find the website [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi "blast off"). Note that there are several "flavours" of BLAST - two of the most commonly used are "blastn" and "blastp", which allow you to search for databases sequences matching Nucleotide sequnces (blastN) or Protein sequences (blastP). In you case, you have nucleotide sequences, so we will be using [blastn](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=MegaBlast&PROGRAM=blastn&PAGE_TYPE=BlastSearch&BLAST_SPEC= "nucs only"). Open a tab of that page now.
 
-<input type="text" id="name" name="name"/>
+
+
+<img src="graphics/blastn-home.png" title="home" width="300"/>
+This is what the page should look like <br><br>
+
+
+On this page you can see an empty white box. This is where you will paste your nucleotide sequence(s) of interest.
