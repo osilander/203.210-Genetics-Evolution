@@ -2,6 +2,8 @@ In Week 4 you will get an introduction to Oxford Nanopore seqeuncing, the output
 
 Let's first remind ourselves why we are performing this experiment, what the goals are, and what the possible outcomes are.
 
+It is possible to approach this lab in a reverse manner - by seeing what you will have to do and then reading the relevant background to understand it. If this is the approach you would like to take, then scroll to the bottom, **Your Assignment**.
+
 # Using mtDNA COI Regions to Identify Species
 
 ## Introduction:
@@ -234,7 +236,7 @@ Finally, click on the top link (or one close to the top). This will bring you to
 
 Let's go through this from the top. First, you will see that the title notes this your sequence matches the _Homo sapiens_ mitochondrial genome. Yay! This is what we expected. Below that, you will see the sequence ID, length, and number of matches. We can ignore those for now. Below that, you can see three important quantities:
 1. **Expect**
-2. **Identities**
+2. **Identities** (and alignment length)
 3. **Gaps**
 
 Let's go through those in detail.
@@ -246,12 +248,46 @@ This number specifies the number of sequences in the database that you would _ex
 
 ## Identities
 
-This specifies how many nucleotides in the database sequence _exactly_ match your sequence once the two sequences have been aligned. You can see this in the aignment itself, in whcih was **Identity** is indicated by a vertical line between two nucleotides.
+This specifies how many nucleotides in the database sequence _exactly_ match your sequence once the two sequences have been aligned. You can see this in the aignment itself, in whcih was **Identity** is indicated by a vertical line between two nucleotides. As you might expect, more identities (and higher fractions of identities indicates a better match).
+
+## Alignment Length
+An important aspect of the sequence match is whether it matches over the whole (or almost) length of your sequence. Sequences that match only oart of yours shoudl be viewed with skepticism - after all, we expect that if your sequence is from a mtDNA region, this region will be in the database _in full_. You can check the length by noting the second number in the **Identities** score (e.g. 600/620 means 600 identities out of an alignment 600 bp in length). In this case, longer alignments are better.
 
 ## Gaps
 
 This indicates how many gaps are present in the alignment of the two sequences. These are regions in which insertions or deletions have occurred - either because your sequence is from an organism that doesn't exactly match the one in the database, or because your sequence itself has errors.
 
+# Your Assignment
+
+You will need to take the sequences that you have in your sequence file (from your barcode) and figure out what organisms those sequences come from. **If your barcode is not in the results file, or if you have very very few sequences** then you can use sequences from a different barcode.
+
+To do this, you should use BLAST (although you are also free to use other methods). Note that you **must** take into account whether your sequence matches well (hint: check the e-value); whether the matched organism makes sense (hint: can you come up with reasonable explanations); and if you don't have an explanation _what a possible explanation is_.
+
+## Your Report
+These sequence-matching results will make up the bulk of the restuls section of your report. The **Methods** consist of how you got these DNA sequences (including the Nanopore sequencing; see above for how that happened). The **Results** consist of the matches for your reads, as well as how good those matches are, how well they align, etc. If there are no good matches (true for some of you), you need to report this, show that there are no good matches, and detail how you tried to ensure you could find good matches. The **Discussion** consists of a discussion as to whether your results make sense, and why or why not they make sense.
 
 
+## Hints and Tips
+
+It is possible to BLAST multiple sequences at once (in fact I **highly** recommend you do this). To do this, simply highlight and copy multiple sequences from your sequence file (not more than 100). Then, paste these into the white box on the blastn homepage. press the BLAST button, and you will - eventually - be brought to the results page. Here, you will see an extra tab under **Results for**. You can click this and see all of the hits for each of the sequences you have entered. Note that any hit with an asterisk next to it had **no signficiant hits in the database at all**.<br>
+
+
+<img src="graphics/multi.png" title="Many!" width="500"/><br>
+**If you submit many sequences at once, you should be able to click this tab and select any one that you want.**<br><br>
+
+It is also possible to adjust the parameters for your blast result. This can be done on the first blastn page below the BLAST button:
+
+
+<img src="graphics/params.png" title="Adjust it" width="500"/><br>
+**Here you can things like the number of results reported.**<br><br>
+
+Finally, you can download all your results at once so you can sort them or look through them more easily, for example in Excel. For example, you might want to sort your results so that **you only consider matches with low e-values _and_ long alignments**. To do this, click on the _Download all_ link. I recommend downloading them as a text file of the hits. You can then open them in Excel. _Unfortunately_, this will just tell you which reads have good matches (e.g. where "good" means they have low e-values and long alignments). This table will _not_ tell you what organism the match is to - you will have to return to the blast page to do that, or search up that specific sequence in your sequence file and re-BLAST it.
+
+
+<img src="graphics/download.png" title="Lots of hits" width="500"/><br>
+**Use this button to download your results**<br><br>
+
+## Help and Assistance
+
+If you need any help or have any questions on the analysis - _any at all_ - please let me know. This is likely to be your first introduction to sequence analysis via BLAST.
 
