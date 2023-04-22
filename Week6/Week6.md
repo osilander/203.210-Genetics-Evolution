@@ -70,6 +70,7 @@ We took your PCR samples (after the second PCR step) and _ligated_ on adapters a
 1. We used a ligation library prep method called [LSK-109](https://interpriseusa.com/product/ligation-sequencing-kit/ "adjacent website")
 2. We sequenced on a MinION R9.4.1 flowcell with a [MinION Mk1B device](https://nanoporetech.com/products/minion?gad=1&gclid=EAIaIQobChMIxuuL38q8_gIV79dMAh1zSA3LEAAYASABEgI_n_D_BwE#tabs-0=mk1b "Tiny")
 3. We basecalled using [Guppy](https://nanoporetech.com/how-it-works/basecalling "guppy again") v6.1
+4. From this, we got DNA sequence data in FASTQ format.
 
 # Introduction to FASTQ format
 
