@@ -60,7 +60,7 @@ Oxford Nanopore sequencing has a wide range of applications, including:
 - Metagenomics
 - Transcriptomics
 - Epigenetics
-- Pathogen detection (e.g. COVID-19)
+- Pathogen detection (e.g. [COVID-19](https://oxfordnanoporedx.com/covid-19 "I did this"))
 - Forensics
 
 The data output from Oxford Nanopore sequencers is a string of nucleotides, e.g. `ATGCGTGGGTCTTTAG` except these strings are usually thousands or hundereds of thousands of nucleotides long. However, the data also contain two other pieces of important information. The first is a unique name for the sequence, and the second is the "quality" of the sequence - i.e. how sure we can be that the sequencer has reported the correct nucleotide. This format (sequence name, nucleotide sequence, and nucleotide accuracy) is called `fastq` format.
