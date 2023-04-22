@@ -1,4 +1,3 @@
-In Week 4 you will get an introduction to Oxford Nanopore seqeuncing, the output data, and sequence file formats.
 
 Let's first remind ourselves why we are performing this experiment, what the goals are, and what the possible outcomes are.
 
