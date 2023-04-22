@@ -261,7 +261,7 @@ This indicates how many gaps are present in the alignment of the two sequences. 
 
 You will need to take the sequences that you have in your sequence file (from your barcode) and figure out what organisms those sequences come from. **If your barcode is not in the results file, or if you have very very few sequences** then you can use sequences from a different barcode.
 
-To do this, you should use BLAST (although you are also free to use other methods). Note that you **must** take into account whether your sequence matches well (hint: check the e-value); whether the matched organism makes sense (hint: can you come up with reasonable explanations); and if you don't have an explanation _what a possible explanation is_.
+To do this, you should use BLAST (although you are also free to use other methods). Note that you **must** take into account whether your sequence matches well (hint: check the e-value); whether the matched **organismS** makes sense (hint: can you come up with reasonable explanations); and if you don't have an explanation _what a possible explanation is_.
 
 ## Your Report
 These sequence-matching results will make up the bulk of the restuls section of your report. The **Methods** consist of how you got these DNA sequences (including the Nanopore sequencing; see above for how that happened). The **Results** consist of the matches for your reads, as well as how good those matches are, how well they align, etc. If there are no good matches (true for some of you), you need to report this, show that there are no good matches, and detail how you tried to ensure you could find good matches. The **Discussion** consists of a discussion as to whether your results make sense, and why or why not they make sense.
