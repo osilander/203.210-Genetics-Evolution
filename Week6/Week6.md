@@ -44,7 +44,7 @@ The basic principle behind Oxford Nanopore sequencing is that a single strand of
 
 As this DNA molecule passes through the pore, the different bases (A, T, C, and G (or methylated bases, or even U in the case of RNA)) produce unique electrical signals that can be used to reconstruct the original sequence of the DNA.
 
-The way that these signals are decoded into the order of base pairs depends on powerful computational methods. Currently, these are machine learning methods based on recurrent neural networks with [long short term memories](https://en.wikipedia.org/wiki/Long_short-term_memory "LSTM").
+The way that these signals are decoded into the order of base pairs depends on powerful computational methods. Currently, these are machine learning methods based on recurrent neural networks with [long short term memories](https://en.wikipedia.org/wiki/Long_short-term_memory "LSTM"). Oxford Nanopore's website [has more details](https://nanoporetech.com/how-it-works/basecalling "Guppy and more")
 
 ## Advantages
 
@@ -64,6 +64,12 @@ Oxford Nanopore sequencing has a wide range of applications, including:
 - Forensics
 
 The data output from Oxford Nanopore sequencers is a string of nucleotides, e.g. `ATGCGTGGGTCTTTAG` except these strings are usually thousands or hundereds of thousands of nucleotides long. However, the data also contain two other pieces of important information. The first is a unique name for the sequence, and the second is the "quality" of the sequence - i.e. how sure we can be that the sequencer has reported the correct nucleotide. This format (sequence name, nucleotide sequence, and nucleotide accuracy) is called `fastq` format.
+
+## Your Nanopore data
+We took your PCR samples (after the second PCR step) and _ligated_ on adapters and "motor" proteins that are required for sequencing. We then sequenced all the samples from the class on a single _previously used_ Oxford Nanopore MinION R9.4.1 flowcell. We then basecalled the data (i.e. transformed the recorded electrical signals into basepairs) using Guppy. More precisely:
+1. We used a ligation library prep method called [LSK-109](https://interpriseusa.com/product/ligation-sequencing-kit/ "adjacent website")
+2. We sequenced on a MinION R9.4.1 flowcell with a [MinION Mk1B device](https://nanoporetech.com/products/minion?gad=1&gclid=EAIaIQobChMIxuuL38q8_gIV79dMAh1zSA3LEAAYASABEgI_n_D_BwE#tabs-0=mk1b "Tiny")
+3. We basecalled using [Guppy](https://nanoporetech.com/how-it-works/basecalling "guppy again") v6.1
 
 # Introduction to FASTQ format
 
